@@ -71,6 +71,16 @@
     footer{border-top:1px solid var(--border);padding:30px 40px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;font-size:.84rem;color:var(--muted)}
     footer a{color:var(--muted)}footer a:hover{color:var(--text)}
     @media(max-width:600px){nav{padding:14px 18px}.nav-links{gap:14px}footer{padding:22px 18px;flex-direction:column;text-align:center}.btn-secondary{display:none}}
+
+    .hamburger{display:none;background:none;border:none;cursor:pointer;padding:6px;margin-left:8px}
+    .hamburger span{display:block;width:22px;height:2px;background:var(--muted);margin:5px 0;border-radius:2px;transition:.25s}
+    @media(max-width:768px){
+      nav{position:relative;flex-wrap:nowrap}
+      .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;border-bottom:1px solid var(--border);padding:14px 24px;flex-direction:column;gap:14px;z-index:200;box-shadow:0 4px 16px rgba(0,0,0,.08)}
+      .nav-links.open{display:flex}
+      .hamburger{display:block}
+      .nav-right{gap:10px}
+    }
   </style>
 </head>
 <body>
@@ -263,6 +273,19 @@ function apply(lang){
   if(tags){document.getElementById("cat-tags").innerHTML=tags.map(t=>`<span class="category-tag">${t}</span>`).join("");}
 }
 document.addEventListener("DOMContentLoaded",()=>apply("en"));
+
+function toggleNav(){
+  const nl=document.querySelector('.nav-links');
+  nl.classList.toggle('open');
+}
+// Close nav when a link is clicked
+document.addEventListener('DOMContentLoaded',function(){
+  document.querySelectorAll('.nav-links a').forEach(function(a){
+    a.addEventListener('click',function(){
+      document.querySelector('.nav-links').classList.remove('open');
+    });
+  });
+});
 </script>
 </body>
 </html>
