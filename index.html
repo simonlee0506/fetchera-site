@@ -49,25 +49,25 @@
     .step-text p{font-size:.91rem;color:var(--muted)}
     .categories{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:36px}
     .category-tag{background:var(--blue-light);color:var(--blue);border-radius:22px;padding:7px 16px;font-size:.88rem;font-weight:600}
-    .pricing-section{background:var(--blue);color:#fff;padding:76px 24px;text-align:center}
-    .pricing-section .section-title{color:#fff}
-    .pricing-section .section-sub{color:rgba(255,255,255,.72);margin-bottom:0}
-    .pricing-cards{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-top:44px}
-    .pricing-card{background:rgba(255,255,255,.12);border:1.5px solid rgba(255,255,255,.25);border-radius:20px;padding:34px 38px;min-width:210px;text-align:center}
-    .pricing-card.featured{background:#fff;color:var(--blue);border-color:#fff}
-    .plan-name{font-size:.82rem;text-transform:uppercase;letter-spacing:.5px;opacity:.7;margin-bottom:9px}
-    .pricing-card.featured .plan-name{opacity:.6}
-    .price-val{font-size:2.3rem;font-weight:800;letter-spacing:-1px}
-    .price-period{font-size:.83rem;opacity:.62;margin-top:4px}
-    .pricing-card.featured .price-period{opacity:.52}
-    .save-badge{display:inline-block;background:var(--blue);color:#fff;font-size:.73rem;font-weight:700;padding:3px 10px;border-radius:11px;margin-top:9px}
-    .trial-note{margin-top:30px;font-size:.86rem;opacity:.68}
-    .promo-section{padding:76px 24px;max-width:780px;margin:0 auto}
-    .promo-box{background:#1a1a1a;color:#fff;border-radius:20px;padding:46px 38px;text-align:center}
-    .promo-box h2{font-size:1.55rem;font-weight:800;margin-bottom:13px}
-    .promo-box p{color:rgba(255,255,255,.72);font-size:.95rem;line-height:1.7;max-width:500px;margin:0 auto 26px}
+    .free-section{background:var(--blue);color:#fff;padding:76px 24px;text-align:center}
+    .free-section .section-title{color:#fff}
+    .free-section .section-sub{color:rgba(255,255,255,.72);margin-bottom:44px}
+    .free-card{display:inline-block;background:#fff;color:var(--blue);border-radius:20px;padding:36px 64px;text-align:center}
+    .free-label{font-size:.82rem;text-transform:uppercase;letter-spacing:.5px;opacity:.6;margin-bottom:9px}
+    .free-val{font-size:3rem;font-weight:800;letter-spacing:-2px}
+    .free-desc{font-size:.86rem;opacity:.55;margin-top:6px}
+    .free-note{margin-top:28px;font-size:.86rem;opacity:.68}
+    .promo-section{padding:76px 24px;max-width:900px;margin:0 auto}
+    .promo-section .section-title{margin-bottom:12px}
+    .promo-section .section-sub{margin-bottom:40px}
+    .promo-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
+    .promo-box{background:#1a1a1a;color:#fff;border-radius:20px;padding:46px 36px;text-align:center}
+    .promo-box h2{font-size:1.4rem;font-weight:800;margin-bottom:13px}
+    .promo-box p{color:rgba(255,255,255,.72);font-size:.93rem;line-height:1.7;max-width:340px;margin:0 auto 26px}
     .btn-gold{display:inline-block;background:#C89B3C;color:#fff;font-weight:700;font-size:.88rem;padding:12px 26px;border-radius:50px;transition:opacity .15s}
     .btn-gold:hover{opacity:.85;text-decoration:none}
+    .btn-cognac{display:inline-block;background:#6B3A2A;color:#fff;font-weight:700;font-size:.88rem;padding:12px 26px;border-radius:50px;transition:opacity .15s}
+    .btn-cognac:hover{opacity:.85;text-decoration:none}
     footer{border-top:1px solid var(--border);padding:30px 40px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;font-size:.84rem;color:var(--muted)}
     footer a{color:var(--muted)}footer a:hover{color:var(--text)}
     @media(max-width:600px){nav{padding:14px 18px}.nav-links{gap:14px}footer{padding:22px 18px;flex-direction:column;text-align:center}.btn-secondary{display:none}}
@@ -92,7 +92,7 @@
   <div class="nav-right">
     <div class="nav-links">
       <a href="#features" data-i18n="nav.features">Features</a>
-      <a href="#pricing" data-i18n="nav.pricing">Pricing</a>
+      <a href="#free" data-i18n="nav.free">Free</a>
       <a href="privacy.html" data-i18n="nav.privacy">Privacy</a>
     </div>
     <div class="lang-switcher">
@@ -111,7 +111,7 @@
   <p data-i18n="hero.subtitle">Scan a barcode at any flea market, thrift store, or record fair. Fetchera tells you what it's worth — and whether you already own it.</p>
   <a href="#" class="btn-primary" data-i18n="hero.cta">Download on the App Store</a>
   <a href="#features" class="btn-secondary" data-i18n="hero.learn">Learn more</a>
-  <p class="hero-price" data-i18n="hero.price">$0.99/month · $4.99/year · 7-day free trial</p>
+  <p class="hero-price" data-i18n="hero.price">Free · No subscription required</p>
 </section>
 
 <section class="section" id="features">
@@ -145,21 +145,31 @@
   <div class="categories" id="cat-tags"></div>
 </section>
 
-<section class="pricing-section" id="pricing">
-  <h2 class="section-title" data-i18n="price.title">Simple pricing</h2>
-  <p class="section-sub" data-i18n="price.sub">Start free. Cancel anytime.</p>
-  <div class="pricing-cards">
-    <div class="pricing-card"><div class="plan-name" data-i18n="price.monthly">Monthly</div><div class="price-val" data-i18n="price.mo_val">$0.99</div><div class="price-period" data-i18n="price.mo_period">per month</div></div>
-    <div class="pricing-card featured"><div class="plan-name" data-i18n="price.yearly">Yearly</div><div class="price-val" data-i18n="price.yr_val">$4.99</div><div class="price-period" data-i18n="price.yr_period">per year</div><div class="save-badge" data-i18n="price.save">Save 58%</div></div>
+<section class="free-section" id="free">
+  <h2 class="section-title" data-i18n="free.title">Completely free</h2>
+  <p class="section-sub" data-i18n="free.sub">No subscription, no paywall, no catch.</p>
+  <div class="free-card">
+    <div class="free-label" data-i18n="free.label">Download &amp; use</div>
+    <div class="free-val" data-i18n="free.val">Free</div>
+    <div class="free-desc" data-i18n="free.desc">No subscription · No in-app purchase</div>
   </div>
-  <p class="trial-note" data-i18n="price.trial">Both plans include a 7-day free trial</p>
+  <p class="free-note" data-i18n="free.note">Fetchera is free so every collector can access it — the full Collectra ecosystem starts here.</p>
 </section>
 
 <section class="promo-section">
-  <div class="promo-box">
-    <h2 data-i18n="promo.title">The complete collector's toolkit</h2>
-    <p data-i18n-html="promo.body">Fetchera is the field companion to <strong>Collectra</strong> — scan in the field, manage your archive at home.</p>
-    <a href="https://simonlee0506.github.io/collectra-site/" class="btn-gold" data-i18n="promo.cta">Discover Collectra →</a>
+  <h2 class="section-title" data-i18n="promo.title">The complete collector's toolkit</h2>
+  <p class="section-sub" data-i18n="promo.sub">Fetchera is the field companion to two powerful desktop and journal apps.</p>
+  <div class="promo-grid">
+    <div class="promo-box">
+      <h2 data-i18n="promo.collectra.title">Collectra</h2>
+      <p data-i18n="promo.collectra.body">The macOS archive for everything you own — books, vinyl, cameras, and more. Import your Collectra library into Fetchera to check duplicates in the field.</p>
+      <a href="https://simonlee0506.github.io/collectra-site/" class="btn-gold" data-i18n="promo.collectra.cta">Discover Collectra →</a>
+    </div>
+    <div class="promo-box">
+      <h2 data-i18n="promo.resontra.title">Resontra</h2>
+      <p data-i18n="promo.resontra.body">The iOS ritual journal for books, records, and every work of art that stays with you. Scan with Fetchera in the field — then write about it in Resontra.</p>
+      <a href="https://simonlee0506.github.io/resontra-site/" class="btn-cognac" data-i18n="promo.resontra.cta">Discover Resontra →</a>
+    </div>
   </div>
 </section>
 
@@ -174,91 +184,112 @@
 <script>
 const T={
   en:{
-    "nav.features":"Features","nav.pricing":"Pricing","nav.privacy":"Privacy",
+    "nav.features":"Features","nav.free":"Free","nav.privacy":"Privacy",
     "hero.badge":"iOS App","hero.title":"Buy it, or leave it?",
-    "hero.subtitle":"Scan a barcode at any flea market, thrift store, or record fair. Fetchera tells you what it\u2019s worth \u2014 and whether you already own it.",
+    "hero.subtitle":"Scan a barcode at any flea market, thrift store, or record fair. Fetchera tells you what it’s worth — and whether you already own it.",
     "hero.cta":"Download on the App Store","hero.learn":"Learn more",
-    "hero.price":"$0.99/month \u00b7 $4.99/year \u00b7 7-day free trial",
+    "hero.price":"Free · No subscription required",
     "features.title":"Everything you need at the point of decision",
     "features.sub":"Built for collectors who make decisions in the field, not at home.",
     "f1.title":"Instant Barcode Scan","f1.body":"Point your camera at any barcode. Fetchera queries Discogs, Open Library, Google Books, and eBay in seconds.",
     "f2.title":"Real Market Prices","f2.body":"Live Discogs prices for vinyl and eBay listings for cameras, hi-fi, and vintage computers.",
-    "f3.title":"Duplicate Check","f3.body":"Import your Collectra library and Fetchera will flag anything you already own with a clear \u201cYou own this\u201d badge.",
+    "f3.title":"Duplicate Check","f3.body":"Import your Collectra library and Fetchera will flag anything you already own with a clear “You own this” badge.",
     "f4.title":"Scan History","f4.body":"Every lookup is saved. Compare prices across trips and decide later at your own pace.",
-    "f5.title":"Three Languages","f5.body":"Full support for English, Fran\u00e7ais, and \u4e2d\u6587 \u2014 including French book lookups via the Biblioth\u00e8que nationale de France.",
+    "f5.title":"Three Languages","f5.body":"Full support for English, Français, and 中文 — including French book lookups via the Bibliothèque nationale de France.",
     "f6.title":"Your Data, Your Device","f6.body":"Scan history stored on-device only. No servers, no accounts, no tracking.",
     "how.title":"How it works","how.sub":"Three steps, a few seconds.",
     "s1.title":"Scan or type","s1.body":"Scan a barcode, enter a Discogs catalog number, type an ISBN, or search by brand and model.",
-    "s2.title":"Get the full picture","s2.body":"Identity, condition details, and current market price \u2014 all on one screen.",
-    "s3.title":"Decide with confidence","s3.body":"Know if it\u2019s a fair price, if you already own it, and jump to eBay sold listings for comparison.",
+    "s2.title":"Get the full picture","s2.body":"Identity, condition details, and current market price — all on one screen.",
+    "s3.title":"Decide with confidence","s3.body":"Know if it’s a fair price, if you already own it, and jump to eBay sold listings for comparison.",
     "cat.title":"Seven collecting categories","cat.sub":"One app covers everything you collect.",
-    "cat.tags":["\ud83c\udfb6 Vinyl Records","\ud83d\udcbf CDs","\ud83d\udcfc Cassette Tapes","\ud83d\udcda Books","\ud83d\udcf7 Cameras & Lenses","\ud83c\udfb5 Hi-Fi Equipment","\ud83d\udcbb Vintage Computers"],
-    "price.title":"Simple pricing","price.sub":"Start free. Cancel anytime.",
-    "price.monthly":"Monthly","price.mo_val":"$0.99","price.mo_period":"per month",
-    "price.yearly":"Yearly","price.yr_val":"$4.99","price.yr_period":"per year","price.save":"Save 58%",
-    "price.trial":"Both plans include a 7-day free trial \u00b7 Cancel in iOS Settings \u2192 Subscriptions \u2192 Fetchera",
-    "promo.title":"The complete collector\u2019s toolkit",
-    "promo.body":"Fetchera is the field companion to <strong>Collectra</strong> \u2014 a macOS app for cataloguing your entire collection. Scan in the field with Fetchera, manage your archive at home with Collectra.",
-    "promo.cta":"Discover Collectra \u2192",
+    "cat.tags":["🎶 Vinyl Records","💿 CDs","📼 Cassette Tapes","📚 Books","📷 Cameras & Lenses","🎵 Hi-Fi Equipment","💻 Vintage Computers"],
+    "free.title":"Completely free",
+    "free.sub":"No subscription, no paywall, no catch.",
+    "free.label":"Download & use",
+    "free.val":"Free",
+    "free.desc":"No subscription · No in-app purchase",
+    "free.note":"Fetchera is free so every collector can access it — the full Collectra ecosystem starts here.",
+    "promo.title":"The complete collector’s toolkit",
+    "promo.sub":"Fetchera is the field companion to two powerful desktop and journal apps.",
+    "promo.collectra.title":"Collectra",
+    "promo.collectra.body":"The macOS archive for everything you own — books, vinyl, cameras, and more. Import your Collectra library into Fetchera to check duplicates in the field.",
+    "promo.collectra.cta":"Discover Collectra →",
+    "promo.resontra.title":"Resontra",
+    "promo.resontra.body":"The iOS ritual journal for books, records, and every work of art that stays with you. Scan with Fetchera in the field — then write about it in Resontra.",
+    "promo.resontra.cta":"Discover Resontra →",
     "footer.privacy":"Privacy Policy","footer.contact":"Contact"
   },
   fr:{
-    "nav.features":"Fonctionnalit\u00e9s","nav.pricing":"Tarifs","nav.privacy":"Confidentialit\u00e9",
-    "hero.badge":"Application iOS","hero.title":"L\u2019acheter, ou le laisser\u00a0?",
-    "hero.subtitle":"Scannez un code-barres dans n\u2019importe quel march\u00e9 aux puces ou friperie. Fetchera vous dit ce que \u00e7a vaut \u2014 et si vous le poss\u00e9dez d\u00e9j\u00e0.",
-    "hero.cta":"T\u00e9l\u00e9charger sur l\u2019App Store","hero.learn":"En savoir plus",
-    "hero.price":"0,99\u00a0$/mois \u00b7 4,99\u00a0$/an \u00b7 Essai gratuit 7\u00a0jours",
-    "features.title":"Tout ce qu\u2019il faut au moment de d\u00e9cider",
-    "features.sub":"Con\u00e7u pour les collectionneurs qui d\u00e9cident sur le terrain, pas chez eux.",
-    "f1.title":"Scan instantan\u00e9","f1.body":"Pointez votre cam\u00e9ra sur n\u2019importe quel code-barres. Fetchera interroge Discogs, Open Library, Google Books et eBay en quelques secondes.",
-    "f2.title":"Prix du march\u00e9 en temps r\u00e9el","f2.body":"Prix Discogs pour les vinyles et annonces eBay pour les appareils photo, la hi-fi et les ordinateurs vintage.",
-    "f3.title":"D\u00e9tection des doublons","f3.body":"Importez votre biblioth\u00e8que Collectra et Fetchera signalera tout article que vous poss\u00e9dez d\u00e9j\u00e0.",
-    "f4.title":"Historique des scans","f4.body":"Chaque recherche est sauvegard\u00e9e. Comparez les prix entre vos sorties et d\u00e9cidez \u00e0 votre rythme.",
-    "f5.title":"Trois langues","f5.body":"Anglais, Fran\u00e7ais et \u4e2d\u6587 \u2014 y compris la recherche de livres fran\u00e7ais via la BnF.",
-    "f6.title":"Vos donn\u00e9es restent sur votre appareil","f6.body":"Historique stock\u00e9 uniquement sur l\u2019appareil. Aucun serveur, aucun compte, aucun suivi.",
-    "how.title":"Comment \u00e7a marche","how.sub":"Trois \u00e9tapes, quelques secondes.",
-    "s1.title":"Scanner ou saisir","s1.body":"Scannez un code-barres, entrez un num\u00e9ro Discogs, tapez un ISBN, ou recherchez par marque et mod\u00e8le.",
-    "s2.title":"Voir l\u2019essentiel","s2.body":"Identit\u00e9, d\u00e9tails d\u2019\u00e9tat et prix actuel du march\u00e9 \u2014 tout sur un seul \u00e9cran.",
-    "s3.title":"D\u00e9cider en confiance","s3.body":"Sachez si le prix est juste, si vous le poss\u00e9dez d\u00e9j\u00e0, et comparez avec les ventes eBay r\u00e9centes.",
-    "cat.title":"Sept cat\u00e9gories de collection","cat.sub":"Une seule app pour tout ce que vous collectionnez.",
-    "cat.tags":["\ud83c\udfb6 Vinyles","\ud83d\udcbf CD","\ud83d\udcfc Cassettes","\ud83d\udcda Livres","\ud83d\udcf7 Appareils photo & Objectifs","\ud83c\udfb5 Mat\u00e9riel hi-fi","\ud83d\udcbb Ordinateurs vintage"],
-    "price.title":"Tarifs simples","price.sub":"Commencez gratuitement. R\u00e9siliez \u00e0 tout moment.",
-    "price.monthly":"Mensuel","price.mo_val":"0,99\u00a0$","price.mo_period":"par mois",
-    "price.yearly":"Annuel","price.yr_val":"4,99\u00a0$","price.yr_period":"par an","price.save":"\u00c9conomisez 58\u00a0%",
-    "price.trial":"Les deux formules incluent un essai gratuit de 7 jours \u00b7 R\u00e9siliez dans R\u00e9glages iOS \u2192 Abonnements \u2192 Fetchera",
-    "promo.title":"La bo\u00eete \u00e0 outils compl\u00e8te du collectionneur",
-    "promo.body":"Fetchera est le compagnon terrain de <strong>Collectra</strong> \u2014 une app macOS pour cataloguer toute votre collection. Scannez sur le terrain avec Fetchera, g\u00e9rez vos archives chez vous avec Collectra.",
-    "promo.cta":"D\u00e9couvrir Collectra \u2192",
-    "footer.privacy":"Politique de confidentialit\u00e9","footer.contact":"Contact"
+    "nav.features":"Fonctionnalités","nav.free":"Gratuit","nav.privacy":"Confidentialité",
+    "hero.badge":"Application iOS","hero.title":"L’acheter, ou le laisser ?",
+    "hero.subtitle":"Scannez un code-barres dans n’importe quel marché aux puces ou friperie. Fetchera vous dit ce que ça vaut — et si vous le possédez déjà.",
+    "hero.cta":"Télécharger sur l’App Store","hero.learn":"En savoir plus",
+    "hero.price":"Gratuit · Sans abonnement",
+    "features.title":"Tout ce qu’il faut au moment de décider",
+    "features.sub":"Conçu pour les collectionneurs qui décident sur le terrain, pas chez eux.",
+    "f1.title":"Scan instantané","f1.body":"Pointez votre caméra sur n’importe quel code-barres. Fetchera interroge Discogs, Open Library, Google Books et eBay en quelques secondes.",
+    "f2.title":"Prix du marché en temps réel","f2.body":"Prix Discogs pour les vinyles et annonces eBay pour les appareils photo, la hi-fi et les ordinateurs vintage.",
+    "f3.title":"Détection des doublons","f3.body":"Importez votre bibliothèque Collectra et Fetchera signalera tout article que vous possédez déjà.",
+    "f4.title":"Historique des scans","f4.body":"Chaque recherche est sauvegardée. Comparez les prix entre vos sorties et décidez à votre rythme.",
+    "f5.title":"Trois langues","f5.body":"Anglais, Français et 中文 — y compris la recherche de livres français via la BnF.",
+    "f6.title":"Vos données restent sur votre appareil","f6.body":"Historique stocké uniquement sur l’appareil. Aucun serveur, aucun compte, aucun suivi.",
+    "how.title":"Comment ça marche","how.sub":"Trois étapes, quelques secondes.",
+    "s1.title":"Scanner ou saisir","s1.body":"Scannez un code-barres, entrez un numéro Discogs, tapez un ISBN, ou recherchez par marque et modèle.",
+    "s2.title":"Voir l’essentiel","s2.body":"Identité, détails d’état et prix actuel du marché — tout sur un seul écran.",
+    "s3.title":"Décider en confiance","s3.body":"Sachez si le prix est juste, si vous le possédez déjà, et comparez avec les ventes eBay récentes.",
+    "cat.title":"Sept catégories de collection","cat.sub":"Une seule app pour tout ce que vous collectionnez.",
+    "cat.tags":["🎶 Vinyles","💿 CD","📼 Cassettes","📚 Livres","📷 Appareils photo & Objectifs","🎵 Matériel hi-fi","💻 Ordinateurs vintage"],
+    "free.title":"Entièrement gratuit",
+    "free.sub":"Sans abonnement, sans blocage, sans condiítïon.",
+    "free.label":"Télécharger & utiliser",
+    "free.val":"Gratuit",
+    "free.desc":"Sans abonnement · Sans achat intégré",
+    "free.note":"Fetchera est gratuit pour que chaque collectionneur y ait accès — l’écosystème Collectra commence ici.",
+    "promo.title":"La boîte à outils complète du collectionneur",
+    "promo.sub":"Fetchera est le compagnon terrain de deux puissantes applications desktop et journal.",
+    "promo.collectra.title":"Collectra",
+    "promo.collectra.body":"L’archive macOS pour tout ce que vous possédez — livres, vinyles, appareils photo et plus encore. Importez votre bibliothèque Collectra dans Fetchera pour vérifier les doublons sur le terrain.",
+    "promo.collectra.cta":"Découvrir Collectra →",
+    "promo.resontra.title":"Resontra",
+    "promo.resontra.body":"Le journal rituel iOS pour les livres, les disques et toutes les œuvres qui vous marquent. Scannez avec Fetchera sur le terrain — puis écrivez-en dans Resontra.",
+    "promo.resontra.cta":"Découvrir Resontra →",
+    "footer.privacy":"Politique de confidentialité","footer.contact":"Contact"
   },
   zh:{
-    "nav.features":"\u529f\u80fd","nav.pricing":"\u4ef7\u683c","nav.privacy":"\u9690\u79c1\u653f\u7b56",
-    "hero.badge":"iOS \u5e94\u7528","hero.title":"\u4e70\uff0c\u8fd8\u662f\u653e\u4e0b\uff1f",
-    "hero.subtitle":"\u5728\u8df3\u86a4\u5e02\u573a\u3001\u4e8c\u624b\u5e97\u6216\u5531\u7247\u5e02\u96c6\u626b\u63cf\u6761\u5f62\u7801\u3002Fetchera \u544a\u8bc9\u4f60\u5b83\u503c\u591a\u5c11\u9322\u2014\u2014\u4ee5\u53ca\u4f60\u662f\u5426\u5df2\u7ecf\u62e5\u6709\u5b83\u3002",
-    "hero.cta":"\u5728 App Store \u4e0b\u8f7d","hero.learn":"\u4e86\u89e3\u66f4\u591a",
-    "hero.price":"$0.99/\u6708 \u00b7 $4.99/\u5e74 \u00b7 7 \u5929\u514d\u8d39\u8bd5\u7528",
-    "features.title":"\u51b3\u7b56\u73b0\u573a\u6240\u9700\u7684\u4e00\u5207",
-    "features.sub":"\u4e13\u4e3a\u5728\u73b0\u573a\u505a\u51b3\u5b9a\u7684\u6536\u85cf\u8005\u800c\u751f\uff0c\u800c\u975e\u56de\u5bb6\u518d\u67e5\u3002",
-    "f1.title":"\u5373\u65f6\u6761\u5f62\u7801\u626b\u63cf","f1.body":"\u5c06\u76f8\u673a\u5bf9\u51c6\u4efb\u4f55\u6761\u5f62\u7801\u3002Fetchera \u5728\u51e0\u79d2\u5185\u67e5\u8be2 Discogs\u3001Open Library\u3001Google Books \u548c eBay\u3002",
-    "f2.title":"\u5b9e\u65f6\u5e02\u573a\u4ef7\u683c","f2.body":"\u9ed1\u80f6\u5531\u7247\u663e\u793a Discogs \u5e02\u573a\u4ef7\uff0c\u76f8\u673a\u3001Hi-Fi \u548c\u590d\u53e4\u7535\u8111\u663e\u793a eBay \u5728\u552e\u4ef7\u3002",
-    "f3.title":"\u91cd\u590d\u8d2d\u4e70\u68c0\u6d4b","f3.body":"\u5bfc\u5165\u4f60\u7684 Collectra \u85cf\u54c1\u5e93\uff0cFetchera \u4f1a\u5bf9\u4f60\u5df2\u62e5\u6709\u7684\u85cf\u54c1\u663e\u793a\u300c\u5df2\u62e5\u6709\u300d\u6807\u8bb0\u3002",
-    "f4.title":"\u626b\u63cf\u5386\u53f2\u8bb0\u5f55","f4.body":"\u6bcf\u6b21\u67e5\u8be2\u90fd\u4fdd\u5b58\u3002\u8de8\u591a\u6b21\u51fa\u884c\u5bf9\u6bd4\u4ef7\u683c\uff0c\u4e0d\u6025\u7740\u5f53\u573a\u51b3\u5b9a\u3002",
-    "f5.title":"\u4e09\u8bed\u8a00\u652f\u6301","f5.body":"\u5b8c\u6574\u652f\u6301\u82f1\u6587\u3001Fran\u00e7ais \u548c\u4e2d\u6587\u2014\u2014\u6cd5\u8bed\u4e66\u7c4d\u8fd8\u901a\u8fc7\u6cd5\u56fd\u56fd\u5bb6\u56fe\u4e66\u9986\uff08BnF\uff09\u67e5\u8be2\u3002",
-    "f6.title":"\u6570\u636e\u7559\u5728\u4f60\u7684\u8bbe\u5907\u4e0a","f6.body":"\u626b\u63cf\u5386\u53f2\u4ec5\u5b58\u50a8\u5728\u8bbe\u5907\u672c\u5730\u3002\u65e0\u670d\u52a1\u5668\u3001\u65e0\u8d26\u53f7\u3001\u65e0\u8ffd\u8e2a\u3002",
-    "how.title":"\u4f7f\u7528\u65b9\u5f0f","how.sub":"\u4e09\u6b65\uff0c\u51e0\u79d2\u949f\u3002",
-    "s1.title":"\u626b\u63cf\u6216\u8f93\u5165","s1.body":"\u626b\u63cf\u6761\u5f62\u7801\u3001\u8f93\u5165 Discogs \u76ee\u5f55\u53f7\u3001\u8f93\u5165 ISBN\uff0c\u6216\u901a\u8fc7\u54c1\u724c\u548c\u578b\u53f7\u641c\u7d22\u76f8\u673a\u548c Hi-Fi \u5668\u6750\u3002",
-    "s2.title":"\u83b7\u53d6\u5b8c\u6574\u4fe1\u606f","s2.body":"\u85cf\u54c1\u8eab\u4efd\u3001\u54c1\u76f8\u8be6\u60c5\u548c\u5f53\u524d\u5e02\u573a\u4ef7\u683c\u2014\u2014\u5168\u5728\u4e00\u4e2a\u9875\u9762\u5448\u73b0\u3002",
-    "s3.title":"\u6709\u628a\u63e1\u5730\u505a\u51b3\u5b9a","s3.body":"\u4e86\u89e3\u4ef7\u683c\u662f\u5426\u5408\u7406\uff0c\u786e\u8ba4\u662f\u5426\u5df2\u62e5\u6709\uff0c\u5e76\u76f4\u63a5\u8df3\u8f6c eBay \u5df2\u552e\u8bb0\u5f55\u4f5c\u4e3a\u53c2\u8003\u3002",
-    "cat.title":"\u4e03\u5927\u6536\u85cf\u54c1\u7c7b","cat.sub":"\u4e00\u4e2a App\uff0c\u8986\u76d6\u4f60\u7684\u6240\u6709\u6536\u85cf\u3002",
-    "cat.tags":["\ud83c\udfb6 \u9ed1\u80f6\u5531\u7247","\ud83d\udcbf CD \u5531\u7247","\ud83d\udcfc \u5361\u5f0f\u78c1\u5e26","\ud83d\udcda \u4e66\u7c4d","\ud83d\udcf7 \u76f8\u673a\u4e0e\u955c\u5934","\ud83c\udfb5 Hi-Fi \u97f3\u54cd","\ud83d\udcbb \u590d\u53e4\u7535\u8111"],
-    "price.title":"\u7b80\u5355\u7684\u5b9a\u4ef7","price.sub":"\u514d\u8d39\u5f00\u59cb\u3002\u968f\u65f6\u53d6\u6d88\u3002",
-    "price.monthly":"\u6708\u4ed8","price.mo_val":"$0.99","price.mo_period":"\u6bcf\u6708",
-    "price.yearly":"\u5e74\u4ed8","price.yr_val":"$4.99","price.yr_period":"\u6bcf\u5e74","price.save":"\u8282\u7701 58%",
-    "price.trial":"\u4e24\u79cd\u65b9\u6848\u5747\u542b 7 \u5929\u514d\u8d39\u8bd5\u7528 \u00b7 \u53d6\u6d88\uff1aiPhone\u300c\u8bbe\u7f6e\u300d\u2192\u300c\u8ba2\u9605\u300d\u2192\u300cFetchera\u300d",
-    "promo.title":"\u6536\u85cf\u8005\u7684\u5b8c\u6574\u5de5\u5177\u94fe",
-    "promo.body":"Fetchera \u662f <strong>Collectra</strong> \u7684\u73b0\u573a\u641e\u6863\u2014\u2014Collectra \u662f\u4e00\u6b3e\u7528\u4e8e\u7ba1\u7406\u4f60\u5168\u90e8\u85cf\u54c1\u6863\u6848\u7684 macOS \u5e94\u7528\u3002\u7528 Fetchera \u5728\u5916\u626b\u7801\uff0c\u7528 Collectra \u5728\u5bb6\u7ba1\u7406\u3002",
-    "promo.cta":"\u4e86\u89e3 Collectra \u2192",
-    "footer.privacy":"\u9690\u79c1\u653f\u7b56","footer.contact":"\u8054\u7cfb\u6211\u4eec"
+    "nav.features":"功能","nav.free":"免费","nav.privacy":"隐私政策",
+    "hero.badge":"iOS 应用","hero.title":"买，还是放下？",
+    "hero.subtitle":"在跳蚤市场、二手店或唱片市集扫描条形码。Fetchera 告诉你它值多少錢——以及你是否已经拥有它。",
+    "hero.cta":"在 App Store 下载","hero.learn":"了解更多",
+    "hero.price":"免费 · 无需订阅",
+    "features.title":"决策现场所需的一切",
+    "features.sub":"专为在现场做决定的收藏者而生，而非回家再查。",
+    "f1.title":"即时条形码扫描","f1.body":"将相机对准任何条形码。Fetchera 在几秒内查询 Discogs、Open Library、Google Books 和 eBay。",
+    "f2.title":"实时市场价格","f2.body":"黑胶唱片显示 Discogs 市场价，相机、Hi-Fi 和复古电脑显示 eBay 在售价。",
+    "f3.title":"重复购买检测","f3.body":"导入你的 Collectra 藏品库，Fetchera 会对你已拥有的藏品显示「已拥有」标记。",
+    "f4.title":"扫描历史记录","f4.body":"每次查询都保存。跨多次出行对比价格，不急着当场决定。",
+    "f5.title":"三语言支持","f5.body":"完整支持英文、Français 和中文——法语书籍还通过法国国家图书馆（BnF）查询。",
+    "f6.title":"数据留在你的设备上","f6.body":"扫描历史仅存储在设备本地。无服务器、无账号、无追踪。",
+    "how.title":"使用方式","how.sub":"三步，几秒钟。",
+    "s1.title":"扫描或输入","s1.body":"扫描条形码、输入 Discogs 目录号、输入 ISBN，或通过品牌和型号搜索相机和 Hi-Fi 器材。",
+    "s2.title":"获取完整信息","s2.body":"藏品身份、品相详情和当前市场价格——全在一个页面呈现。",
+    "s3.title":"有把握地做决定","s3.body":"了解价格是否合理，确认是否已拥有，并直接跳转 eBay 已售记录作为参考。",
+    "cat.title":"七大收藏品类","cat.sub":"一个 App，覆盖你的所有收藏。",
+    "cat.tags":["🎶 黑胶唱片","💿 CD 唱片","📼 卡式磁带","📚 书籍","📷 相机与镜头","🎵 Hi-Fi 音响","💻 复古电脑"],
+    "free.title":"完全免费",
+    "free.sub":"无订阅，无付费墙，无任何限制。",
+    "free.label":"下载并使用",
+    "free.val":"免费",
+    "free.desc":"无订阅 · 无内购项目",
+    "free.note":"Fetchera 完全免费，让每一位收藏者都能轻松使用——Collectra 生态圈的旅程从这里开始。",
+    "promo.title":"收藏者的完整工具链",
+    "promo.sub":"Fetchera 是两款强大伴侣 App 的现场搞档工具。",
+    "promo.collectra.title":"Collectra",
+    "promo.collectra.body":"管理你全部藏品的 macOS 档案库——书籍、黑胶、相机等应有尽有。将 Collectra 藏品库导入 Fetchera，在现场即可检测重复购买。",
+    "promo.collectra.cta":"了解 Collectra →",
+    "promo.resontra.title":"Resontra",
+    "promo.resontra.body":"面向书籍、唱片和一切触动你的作品的 iOS 仪式日记。用 Fetchera 在现场扫码，再用 Resontra 记录你的感受。",
+    "promo.resontra.cta":"了解 Resontra →",
+    "footer.privacy":"隐私政策","footer.contact":"联系我们"
   }
 };
 function switchLang(lang,e){
@@ -279,7 +310,6 @@ function toggleNav(){
   const nl=document.querySelector('.nav-links');
   nl.classList.toggle('open');
 }
-// Close nav when a link is clicked
 document.addEventListener('DOMContentLoaded',function(){
   document.querySelectorAll('.nav-links a').forEach(function(a){
     a.addEventListener('click',function(){
